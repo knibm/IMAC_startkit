@@ -13,5 +13,20 @@
       "method": "ping"
     },
     "comment": ""
+  },
+  {
+    "hostname": "ciolinux002",
+    "description": "ホゲホゲサーバー",
+    "server_group": "ホゲアプリグループ",
+    "address": "127.0.0.1",
+    "address_floating": false,
+    "address_floating_model": "",
+    "name_resolution": "hosts",
+    "interface": "eth0",
+    "ping_check_options": {
+      "enabled": true,
+      "method": "ping"
+    },
+    "comment": ""
   }
 ]
