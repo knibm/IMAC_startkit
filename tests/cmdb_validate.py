@@ -1,0 +1,16 @@
+import jsonschema
+import json
+
+schema = {
+          "type": "array",
+          "title": "Host list",
+          "format": "tabs",
+          "items": {
+              "$ref": "file:docs/host_ping.json",
+          }
+}
+
+cmdb = open('docs/cmdb.json', 'r')
+jsoncmdb = json.load(cmdb)
+
+jsonschema.validate(jsoncmdb, schema)

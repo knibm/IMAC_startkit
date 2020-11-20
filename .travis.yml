@@ -1,0 +1,38 @@
+---
+language: python
+python:
+  - "2.7"
+
+# services:
+#   - docker
+
+before_install:
+  # Make sure everything's up to date.
+  - sudo apt-get update -qq
+
+install:
+  # Instal YAML lint
+  # Install Ansible-lint
+  # Install Ansible-lint
+  - pip install yamllint jsonschema  ansible-lint
+
+  # Install Molecule and Docker
+  # - pip install molecule==2.22 docker
+
+script:
+  # Check CMDB is not broken.
+  - jq . docs/cmdb.json > /dev/null
+
+  # Check CMDB entities by jsonschema
+  #
+  - python tests/cmdb_validate.py
+
+  # Check YAML syntax
+  - yamllint .
+
+  # Check the role/playbook's syntax.
+  - ansible-lint .
+
+  # Run tests using Molecule
+  # - molecule --version
+  # - travis_wait molecule test --all

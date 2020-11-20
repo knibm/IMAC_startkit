@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Host Ping Target JSON Editor</title>
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.js" integrity="sha256-/irFIZmSo2CKXJ4rxHWfrI+yGJuI16Z005X/bENdpTY=" crossorigin="anonymous"></script>
+	    
+    <script src="./lib/jsoneditor.js"></script>
+    <script src="./lib/choices.min.js"></script>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  </head>
+  <body>
+    <h1>Host Ping Target JSON Editor</h1>
+    
+    <p>This page help you to edit JSON styled Target host data:</p>
+    <ul>
+      <li>Once you confirmed the commit, please create a pull request to master. It should be validated by the committer.</li>
+      <li>It is allowed, but not recommended, you to make a commit onto cmdb.json directly without using this editor page. The validation of values are taken place with this editor page.</li>
+    </ul>
+    
+    <button id='submit'>Dump and Copy</button>
+    <button id='restore'>Restore to Original</button>
+    <button id='enable_disable'>Disable/Enable Form</button>
+    <span id='valid_indicator'></span>
+    
+    <div id='editor_holder'></div>
+    <script type="text/javascript">
+var openInNewTab = function(url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+};
+var ajaxRequest = function(reqObject) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            if (xhr.response === undefined) {
+                xhr.response = xhr.responseText;
+            }
+            reqObject.callback(xhr.response);
+        }
+    }
+
+    xhr.open("GET", reqObject.url);
+    xhr.send();
+    return xhr;
+};
+ajaxRequest({
+  url : "./cmdb.json",
+  callback : function(response) {
+    var tableData = JSON.parse(response);
+      // This is the starting value for the editor
+      // We will use this to seed the initial editor 
+      // and to provide a "Restore to Default" button.
+
+      // Initialize the editor
+      var editor = new JSONEditor(document.getElementById('editor_holder'),{
+        // Enable fetching schemas via ajax
+        ajax: true,
+        
+        // The schema for the editor
+        schema: {
+          type: "array",
+          title: "Hosts",
+          format: "tabs",
+          items: {
+            title: "Host",
+            $ref: "host_ping.json",
+	    headerTemplate: "{{self.hostname}}"
+          }
+        },
+        
+        // Seed the form with a starting value
+        startval: tableData,
+        
+	// Disable Edit button (default : false)
+	disable_edit_json: true,
+
+	// Disable Properties button (default : false)
+	disable_properties: true,
+
+	// Disable delete all rows button (default : false)
+	disable_array_delete_all_rows: true,
+
+        // Disable additional properties
+        // no_additional_properties: true,
+        
+        // Require all properties by default
+        required_by_default: true,
+
+	// Make the input area collapsed
+	collapsed: true,
+
+	// Set theme 
+	theme: 'bootstrap4',
+
+	// show_opt_in : default is false.
+	// NON required properties will have an extra toggable checkbox near the title that determines
+	show_opt_in: false
+      });
+      
+      // Hook up the submit button to log to the console
+      document.getElementById('submit').addEventListener('click',function() {
+        // Get an array of errors from the validator
+        var errors = editor.validate();
+	var jsonValue = JSON.stringify(editor.getValue(),null,2);
+        
+        // Not valid
+        if(errors.length) {
+	  alert("Validation failed.");
+        }
+        // Valid
+        else {
+          // Get the value from the editor
+          //console.log(editor.getValue());
+          console.log(jsonValue);
+	  if(navigator.clipboard){
+	    navigator.clipboard.writeText(jsonValue);
+	    alert("Copied to Clipboard.");
+  	  }
+        }
+      });
+      
+      // Hook up the Restore to Default button
+      document.getElementById('restore').addEventListener('click',function() {
+        editor.setValue(tableData);
+      });
+      
+      // Hook up the enable/disable button
+      document.getElementById('enable_disable').addEventListener('click',function() {
+        // Enable form
+        if(!editor.isEnabled()) {
+          editor.enable();
+        }
+        // Disable form
+        else {
+          editor.disable();
+        }
+      });
+      
+      // Hook up the validation indicator to update its 
+      // status whenever the editor changes
+      editor.on('change',function() {
+        // Get an array of errors from the validator
+        var errors = editor.validate();
+        
+        var indicator = document.getElementById('valid_indicator');
+        
+        // Not valid
+        if(errors.length) {
+          indicator.style.color = 'red';
+          indicator.textContent = "not valid"+" "+JSON.stringify(errors,null,2);
+        }
+        // Valid
+        else {
+          indicator.style.color = 'green';
+          indicator.textContent = "valid";
+        }
+      });
+  }
+});
+    </script>
+  </body>
+</html>
