@@ -1,0 +1,17 @@
+[
+  {
+    "hostname": "ciolinux001",
+    "description": "CIO専用Linuxファイルサーバー",
+    "server_group": "mygroup",
+    "address": "localhost",
+    "address_floating": true,
+    "address_floating_model": "HSRP",
+    "name_resolution": "hosts",
+    "interface": "ManagementAccess IP",
+    "ping_check_options": {
+      "enabled": true,
+      "method": "ping"
+    },
+    "comment": ""
+  }
+]
