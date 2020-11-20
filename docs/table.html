@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>CACF Account List</title>
+<title>Ping check server list</title>
 <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/tabulator_simple.min.css" rel="stylesheet">
 <!-- standard <link href="/dist/css/tabulator.min.css" rel="stylesheet"> -->
 <!-- modern <link href="/dist/css/tabulator_modern.min.css" rel="stylesheet"> -->
@@ -10,7 +10,7 @@
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.js"></script>
 </head>
 <body>
-<div id="account-table"></div>
+<div id="server-table"></div>
 <script type="text/javascript">
 var openInNewTab = function(url) {
     var win = window.open(url, '_blank');
@@ -36,7 +36,7 @@ ajaxRequest({
   url : "./cmdb.json",
   callback : function(response) {
     var tableData = JSON.parse(response);
-    var dataTable = new Tabulator("#account-table", {
+    var dataTable = new Tabulator("#server-table", {
             data:tableData,
 	    height:"700px",
             // layout:"fitColumns",
@@ -52,7 +52,8 @@ ajaxRequest({
                 {title:"Address Floating Model",    field:"address_floating_model", hozAlign:"center"},
                 {title:"Name Resolution Type",    field:"name_resolution", hozAlign:"center"},
                 {title:"Interface",    field:"interface", hozAlign:"center"},
-                {title:"Ping check option",    field:"ping_check_options", hozAlign:"center"},
+                {title:"Ping check enabled",    field:"ping_check_options.enabled", hozAlign:"center"},
+                {title:"Ping check method",    field:"ping_check_options.method", hozAlign:"center"},
                 {title:"Comments", field:"comment"}
 	    ],
 	    rowDblClick:function(e, row){

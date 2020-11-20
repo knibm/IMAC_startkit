@@ -1,0 +1,78 @@
+{
+	"title": "Host entry",
+	"type": "object",
+	"properties": {
+		"hostname": {
+			"type": "string",
+			"title": "Hostname",
+			"description": "Target hostname",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"title": "Description",
+			"description": "Host description",
+			"default": ""
+		},
+		"server_group": {
+			"type": "string",
+			"title": "Server Group",
+			"description": "Server Maintenance Group",
+			"default": ""
+		},
+		"address": {
+			"type": "string",
+			"title": "Address",
+			"description": "Address in FQDN or IP address to be used for check.",
+			"default": ""
+		},
+		"address_floating": {
+			"type": "boolean",
+			"title": "Address Floating",
+			"description": "true when address is floating over servers.",
+			"default": false
+		},
+		"address_floating_model": {
+			"type": "string",
+			"title": "Address Floating Model",
+			"description": "If floating address, what model is used as like HSRP or Failover (do not ask the details, this is just an example.)",
+			"default": ""
+		},
+		"name_resolution": {
+			"type": "string",
+			"title": "Name Resolution Type",
+			"description": "Expected method to resolve the IP address for this hostname.",
+			"default": ""
+		},
+		"interface": {
+			"type": "string",
+			"title": "Interface",
+			"description": "Interface associated to this address on the target host.",
+			"default": ""
+		},
+		"ping_check_options": {
+			"type": "object",
+			"title": "Ping Check Options",
+			"description": "Ping Check Detailed options",
+			"properties": {
+				"enabled": {
+					"type": "boolean",
+					"title": "Ping Check enabled",
+					"default": true
+				},
+				"method": {
+					"type": "string",
+					"title": "Ping Check method",
+					"description": "Specify the method to be used to check the availability of this host"
+				}
+			}
+		},
+		"comment": {
+			"type": "string",
+			"title": "xxx",
+			"description": "xxx",
+			"default": "",
+			"format": "textarea"
+		}
+	}
+}
