@@ -19,3 +19,7 @@ In case of IMaC, Idempotency is still a most important factor as like IaC. The t
 参考：
 「Infrastructure as Codeに疲れたので、僕たちが本来やりたかったことを整理する」を１年掛けて整理した
 https://medium.com/@shogomuranushi/infrastructure-as-code%E3%81%AB%E7%96%B2%E3%82%8C%E3%81%9F%E3%81%AE%E3%81%A7-%E5%83%95%E3%81%9F%E3%81%A1%E3%81%8C%E6%9C%AC%E6%9D%A5%E3%82%84%E3%82%8A%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E3%82%92%E6%95%B4%E7%90%86%E3%81%99%E3%82%8B-%E3%82%92%EF%BC%91%E5%B9%B4%E6%8E%9B%E3%81%91%E3%81%A6%E6%95%B4%E7%90%86%E3%81%97%E3%81%9F-ad435d953471
+
+Infrastructure as Codeの留意点とメリット　～サーバー更改プロジェクトへの適用で得られた知見・実感　
+著者｜小栗 直樹 氏　日本アイ・ビー・エム システムズ・エンジニアリング株式会社　
+https://www.imagazine.co.jp/infrastructure-as-code%E3%81%AE%E7%95%99%E6%84%8F%E7%82%B9%E3%81%A8%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88%E3%80%80%EF%BD%9E%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E6%9B%B4%E6%94%B9%E3%83%97%E3%83%AD/
