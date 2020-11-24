@@ -69,9 +69,9 @@
 		},
 		"comment": {
 			"type": "string",
-			"title": "xxx",
-			"description": "xxx",
-			"default": "",
+			"title": "Comment",
+			"description": "Comment Text field",
+			"default": "# Copyright 2020- IBM Inc. All rights reservead\n# SPDX-License-Identifier: Apache2.0",
 			"format": "textarea"
 		}
 	}
