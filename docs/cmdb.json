@@ -1,13 +1,13 @@
 [
   {
     "hostname": "ciolinux001",
-    "description": "CIO専用Linuxファイルサーバー",
-    "server_group": "mygroup",
+    "description": "CIO専用Linuxファイルサーバー1",
+    "server_group": "ciogroup",
     "address": "localhost",
     "address_floating": true,
     "address_floating_model": "HSRP",
     "name_resolution": "hosts",
-    "interface": "ManagementAccess IP",
+    "interface": "eth1",
     "ping_check_options": {
       "enabled": true,
       "method": "ping"
@@ -16,8 +16,23 @@
   },
   {
     "hostname": "ciolinux002",
-    "description": "ホゲホゲサーバー",
-    "server_group": "ホゲアプリグループ",
+    "description": "CIO専用Linuxファイルサーバー2",
+    "server_group": "ciogroup",
+    "address": "127.0.0.2",
+    "address_floating": false,
+    "address_floating_model": "",
+    "name_resolution": "hosts",
+    "interface": "eth0",
+    "ping_check_options": {
+      "enabled": true,
+      "method": "ping"
+    },
+    "comment": ""
+  },
+  {
+    "hostname": "ciotestlinux001",
+    "description": "CIO Dev Linux Server",
+    "server_group": "ciodev",
     "address": "127.0.0.1",
     "address_floating": false,
     "address_floating_model": "",
