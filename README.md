@@ -3,7 +3,7 @@
 Infrastructure Management as Code Starter Kit
 
 <!-- Build Status, is a great thing to have at the top of your repository, it shows that you take your CI/CD as first class citizens -->
-[![Build Status](https://travis.ibm.com/cacf-jp-automation/IMaC_startkit.svg?token=2yTtXAokpWkqEud8ssW5&branch=master)](https://travis.ibm.com/cacf-jp-automation/IMaC_startkit)
+[![Build Status](https://travis-ci.org/knibm/IMaC_startkit.svg?branch=master)](https://travis-ci.org/knibm/IMaC_startkit)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 <!-- Not always needed, but a scope helps the user understand in a short sentance like below, why this repo exists -->
