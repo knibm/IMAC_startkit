@@ -31,10 +31,10 @@ This repository contains some example best practices for open source repositorie
 * [MAINTAINERS.md](MAINTAINERS.md)
 <!-- A Changelog allows you to track major changes and things that happen, https://github.com/github-changelog-generator/github-changelog-generator can help automate the process -->
 
-> These are optional
 
 <!-- The following are OPTIONAL, but strongly suggested to have in your repository. -->
-* [Example View](https://pages.github.ibm.com/cacf-jp-automation/IMaC_startkit/) - You can see user page https://pages.github.ibm.com/cacf-jp-automation/IMaC_startkit/ .
+* [Example View](https://knibm.github.io/IMaC_startkit/table.html) - You can see user side page.
+* [Example Edit](https://knibm.github.io/IMaC_startkit/edit.html) - You can see administrator edit page.
 * [travis.yml](.travis.yml) - This is a example `.travis.yml`, please take a look https://docs.travis-ci.com/user/tutorial/ for more details.
 
 
