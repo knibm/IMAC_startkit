@@ -11,7 +11,7 @@ Infrastructure Management as Code Starter Kit
 
 This repository provide a simple and reusable implementation of 'Infrastructure Management as Code' as sample code.
 
-### What is Infrastructure as Code ?
+### What is Infrastructure Management as Code ?
 
 IaC stands for 'Infrastructure as Code' is a famous word and introduced a new way to IT operations. IaC is expected to build an IT infrastructure with Code automatically. It create a significant benefit on operations of business application. The IMaC extends the concept of Infrastructure as Code. IMaC is trying to manage the existing infrastructure. The legacy old styled Business Application Infrastructure, which cannot be built automatically by IaC, is considered as outside of scope of IaC. But, even though it could not be built by IaC, there are needs to utilize the introduced capability of IaC.
 
