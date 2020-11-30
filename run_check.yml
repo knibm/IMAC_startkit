@@ -1,0 +1,46 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    cmdb_filename: "docs/cmdb.json"
+
+  tasks:
+    - name: Load cmdb
+      set_fact:
+        cmdb: "{{ lookup('file', cmdb_filename) | from_json }}"
+
+    - debug:
+        msg:
+          - "{{ cmdb }}"
+
+    - name: List hosts
+      set_fact:
+        target_hosts: >-
+          {%- set result_list = [] -%}
+          {%- for i in range(cmdb|length) -%}
+            {%- set _ = result_list.append(cmdb[i].address) -%}
+          {%- endfor -%}
+          {{ result_list }}
+
+    - debug:
+        msg:
+          - "{{ target_hosts }}"
+
+- hosts: "{{ hostvars['localhost']['target_hosts'] }}"
+  # Please change the connection to appropriate type not local of this example.
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Command to execute.
+      shell: hostname; echo test OK
+      register: shell_results
+      changed_when: false
+
+    - name: Show result output message of executing command
+      debug:
+        msg: |
+          Shell is executed.
+          Output is below.
+          {{ shell_results.stdout }}
