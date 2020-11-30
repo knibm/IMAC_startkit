@@ -19,6 +19,7 @@ IaC stands for 'Infrastructure as Code' is a famous word and introduced a new wa
 
 In case of IMaC, Idempotency is still a most important factor as like IaC. The target value of configuration management code which is represented by a `cmdb.json`. The values on `cmdb.json` will be applied to the target managed systems with IaC styled mechanism and keeping Idempotency.
 
+![diagram](https://knibm.github.io/IMaC_startkit/IMaC_concept.png)
 
 <!-- A more detailed Usage or detailed explaination of the repository here -->
 ## Usage
