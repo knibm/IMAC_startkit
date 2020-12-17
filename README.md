@@ -3,7 +3,7 @@
 Infrastructure Management as Code Starter Kit
 
 <!-- Build Status, is a great thing to have at the top of your repository, it shows that you take your CI/CD as first class citizens -->
-[![Build Status](https://travis-ci.org/knibm/IMaC_startkit.svg?branch=master)](https://travis-ci.org/knibm/IMaC_startkit)
+[![Build Status](https://travis-ci.org/IBM/IMaC-startkit.svg?branch=master)](https://travis-ci.org/IBM/IMaC-startkit)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 <!-- Not always needed, but a scope helps the user understand in a short sentance like below, why this repo exists -->
@@ -19,7 +19,7 @@ IaC stands for 'Infrastructure as Code' is a famous word and introduced a new wa
 
 In case of IMaC, Idempotency is still a most important factor as like IaC. The target value of configuration management code which is represented by a `cmdb.json`. The values on `cmdb.json` will be applied to the target managed systems with IaC styled mechanism and keeping Idempotency.
 
-![diagram](https://knibm.github.io/IMaC_startkit/IMaC_concept.png)
+![diagram](https://ibm.github.io/IMaC-startkit/IMaC_concept.png)
 
 <!-- A more detailed Usage or detailed explaination of the repository here -->
 ## Usage
@@ -34,8 +34,8 @@ This repository contains some example best practices for open source repositorie
 
 
 <!-- The following are OPTIONAL, but strongly suggested to have in your repository. -->
-* [Example View](https://knibm.github.io/IMaC_startkit/table.html) - You can see user side page.
-* [Example Edit](https://knibm.github.io/IMaC_startkit/edit.html) - You can see administrator edit page.
+* [Example View](https://ibm.github.io/IMaC-startkit/table.html) - You can see user side page.
+* [Example Edit](https://ibm.github.io/IMaC-startkit/edit.html) - You can see administrator edit page.
 * [travis.yml](.travis.yml) - This is a example `.travis.yml`, please take a look https://docs.travis-ci.com/user/tutorial/ for more details.
 
 

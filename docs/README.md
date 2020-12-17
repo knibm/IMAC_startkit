@@ -1,8 +1,8 @@
 # IMaC_startkit
 Infrastructure Management as Code Starter Kit
 
-- [github repository](https://github.com/knibm/IMaC_startkit)  contains all public code
-- [Travis CI](https://travis-ci.org/github/knibm/IMaC_startkit) validate the changes
+- [github repository](https://github.com/IBM/IMaC-startkit)  contains all public code
+- [Travis CI](https://travis-ci.org/github/IBM/IMaC-startkit) validate the changes
 - [Host list](table.html) shows list of hosts by table style using Tabulator
 - [Host list edit](edit.html) enables JSON file edit using JSON Editor
 
